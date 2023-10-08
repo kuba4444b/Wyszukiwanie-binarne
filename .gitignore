@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+long long tab[1000000];
+
+int pana(int l, int p, long wyszukaj) {
+  int sr;
+  while (l <= p) {
+    sr = (l + p) / 2;
+
+    cout << "l = " << l << ", p = " << p << ", sr = " << sr
+         << endl;
+
+    if (tab[sr] == wyszukaj) {
+      cout << "Znaleziono " << wyszukaj << " na pozycji " << sr << endl;
+      return sr;
+    }
+
+    if (tab[sr] > wyszukaj) {
+      cout << "wyszukaj liczba jest mniejsza od elementu na pozycji " << sr
+           << endl;
+      p = sr - 1;
+    } else {
+      cout << "wyszukaj liczba jest większa od elementu na pozycji " << sr
+           << endl;
+      l = sr + 1;
+    }
+  }
+  cout << "Liczba " << wyszukaj << " nie występuje w zbiorze" << endl;
+  return -1;
+}
+
+int main() {
+  long long n, wyszukaj;
+  cout << "Podaj ilość elementów do wczytania (n < 1000000): ";
+  cin >> n;
+
+  cout << "Wprowadź " << n << " elementów tablicy (posortowanych): ";
+  for (int i = 0; i < n; i++)
+    cin >> tab[i];
+
+  cout << "Podaj liczbę do znalezienia: ";
+  cin >> wyszukaj;
+
+  int pozycja = pana(0, n - 1, wyszukaj);
+
+  return 0;
+}
