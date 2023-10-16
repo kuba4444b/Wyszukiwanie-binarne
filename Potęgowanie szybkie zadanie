@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+long long szybkie(long long a, unsigned int n)
+{
+	long long w = 1;
+	
+	while(n>0)
+	{
+		if (n%2 == 1)
+			w *= a;
+			
+		a*= a;
+		n/=2;
+	}
+	return w;
+}
+
+int main()
+{
+	unsigned int n;
+	long long a;
+	
+	cout<<"Podaj podstawę: ";
+	cin>>a;
+	cout<<"Podaj wykładnik: ";
+	cin>>n;
+	
+	cout<<a<<" do potęgi "<<n<<" wynosi "<<szybkie(a, n);
+
+	return 0;
+}
