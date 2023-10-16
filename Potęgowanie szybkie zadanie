@@ -26,6 +26,6 @@ int main()
 	cout << "Podaj wykladnik: ";
 	cin >> n;
 
-	cout << a << " do potęgi " << n << " wynosi " << szybkie(a, n);
+	cout << a << " do potegi " << n << " wynosi " << szybkie(a, n);
 
 	return 0;
